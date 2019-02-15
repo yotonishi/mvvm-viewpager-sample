@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">mvvm-viewpager-sample</string>
+
+    <string name="radio_selected_1">Select 1</string>
+    <string name="radio_selected_2">Select 2</string>
+</resources>

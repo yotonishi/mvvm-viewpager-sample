@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+>
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+                name="viewmodel"
+                type="com.otonishi.example.mvvmviewpager.viewmodels.ViewPagerViewModel"/>
+
+        <variable
+                name="handlers"
+                type="com.otonishi.example.mvvmviewpager.handlers.ViewPagerHandler"/>
+
+        <variable
+                name="radiogroup"
+                type="android.widget.RadioGroup"/>
+    </data>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerInParent="true">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <RadioGroup
+                    android:id="@+id/rg_view_pager_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                <RadioButton
+                        android:id="@+id/rg_view_pager_group_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{handlers.getRadioText(viewmodel,1)}"
+                        android:checked="true"/>
+                <RadioButton
+                        android:id="@+id/rg_view_pager_group_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{handlers.getRadioText(viewmodel,2)}"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <android.support.v7.widget.AppCompatButton
+                android:text="Result"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:onClick="@{() -> handlers.onClickToResult(viewmodel,radiogroup)}"/>
+    </RelativeLayout>
+
+</layout>
